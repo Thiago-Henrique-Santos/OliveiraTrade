@@ -1,5 +1,9 @@
+const database = require('../DataBase/connection');
+
 exports.post = (req, res, next) => {
+    const db = database.open('./Database/database.db');
     res.status(201).send('Rots POST!');
+    database.close(db);
 }
 
 exports.put = (req, res, next) => {
