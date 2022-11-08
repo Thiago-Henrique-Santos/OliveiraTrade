@@ -1,9 +1,8 @@
-const database = require('../DataBase/connection');
+const User = require('../Models/UserModel');
 
 exports.post = (req, res, next) => {
-    const db = database.open('./Database/database.db');
+    User.signUp();
     res.status(201).send('Rots POST!');
-    database.close(db);
 }
 
 exports.put = (req, res, next) => {
