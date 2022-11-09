@@ -9,7 +9,7 @@ exports.open = (database) => {
         console.log("Connected to OliveiraTrade's database!");
     });
 
-    database.run('CREATE TABLE IF NOT EXISTS user (id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY, name VARCHAR(80), email VARCHAR(70), cpf VARCHAR(14), password VARCHAR(25));');
+    database.run('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(80), email VARCHAR(70), cpf VARCHAR(14), pass VARCHAR(50));');
     return database;
 }
 
