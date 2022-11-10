@@ -9,7 +9,6 @@ exports.open = (database) => {
         console.log("Connected to OliveiraTrade's database!");
     });
 
-    database.run('CREATE TABLE IF NOT EXISTS user (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR(80), email VARCHAR(70), cpf VARCHAR(14), pass VARCHAR(50));');
     return database;
 }
 
