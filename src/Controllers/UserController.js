@@ -1,15 +1,9 @@
 const User = require('../Models/UserModel');
 
-exports.post = (req, res, next) => {
+exports.post = (req, res) => {
     try {
-        const user = {
-            name: 'Thiago',
-            email: 'thiagohsantosths@gmail.com',
-            cpf: '084.430.946.05',
-            pass: '1SenhaDeTeste%'
-        }
-        User.signUp(user);
-        res.status(201).send('Rots POST!');
+        User.signUp(req.body);
+        res.status(201).send('Rota POST!');
     } catch (error) {
         console.log(error)
     }
