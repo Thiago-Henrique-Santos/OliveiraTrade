@@ -12,10 +12,6 @@ exports.open = (database) => {
     return database;
 }
 
-exports.run = (database, sql) => {
-    database.run(sql);
-}
-
 exports.close = (database) => {
     database.close((err) => {
         if (err) {

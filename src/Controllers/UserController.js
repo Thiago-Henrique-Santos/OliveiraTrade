@@ -9,6 +9,14 @@ exports.post = (req, res) => {
     }
 }
 
+exports.getForLogin = (req, res) => {
+    try {
+        
+    } catch {
+
+    }
+}
+
 exports.put = (req, res, next) => {
     let id = req.params.id;
     res.status(201).send(`Rota PUT com ID --> ${id}`);
