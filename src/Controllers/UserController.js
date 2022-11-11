@@ -3,7 +3,7 @@ const User = require('../Models/UserModel');
 exports.post = (req, res) => {
     try {
         User.signUp(req.body);
-        res.status(201).send('Rota POST!');
+        res.status(201).send(`Conta de ${req.body.name} criada com sucesso!`);
     } catch (error) {
         console.log(error)
     }
