@@ -1,6 +1,5 @@
 const database = require('../DataBase/connection');
 const crypto = require('crypto');
-const { debugPort } = require('process');
 
 exports.signUp = (user) => {
     let hash = crypto.createHash('sha1');
@@ -17,7 +16,19 @@ exports.login = (login) => {
     let hash = crypto.createHash('sha1');
     hash = hash.update(login.pass);
 
+    const sql = `SELECT * FROM user WHERE user.email = ? AND user.pass = ?;`;
+
     const db = database.open('./DataBase/database.db');
-    database.run(db, `SELECT`);
+    db.get(sql, [login.email, hash.digest('base64')], (err, row) => {
+        if (err) {
+            return `Erro: ${err.message}`;
+        }
+
+        if (row) {
+            return row ? row : 'Email ou senha incorreto!';   
+        } else {
+            return 'O erro está em algo envolvendo a variável row!';
+        }
+    });
     database.close(db);
 }

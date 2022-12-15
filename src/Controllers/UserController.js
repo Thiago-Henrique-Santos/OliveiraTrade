@@ -5,33 +5,21 @@ exports.post = (req, res) => {
         User.signUp(req.body);
         res.status(201).send(`Conta de ${req.body.name} criada com sucesso!`);
     } catch (error) {
-        console.log(error)
+        res.status(500).send(error);
     }
 }
 
-exports.getForLogin = (req, res) => {
+exports.get = (req, res) => {
     try {
+        let query = User.login(req.body);
+        console.log(query);
         
+        if (query) {
+            res.status(200).send(query);
+        } else {
+            res.status(500).send('Erro desconhecido! ' + query)
+        }
     } catch {
-
+        res.status(500).send('Ocorreu um erro em UserController.js > método get');
     }
 }
-
-exports.put = (req, res, next) => {
-    let id = req.params.id;
-    res.status(201).send(`Rota PUT com ID --> ${id}`);
-}
-
-exports.delete = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Rota DELETE com ID --> ${id}`);
-}
-
-exports.get = (req, res, next) => {
-    res.status(200).send('Rota GET!');
-}
-
-exports.getById = (req, res, next) => {
-    let id = req.params.id;
-    res.status(200).send(`Rota GET com ID --> ${id}`);
- };
