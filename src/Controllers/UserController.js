@@ -1,9 +1,9 @@
 const User = require('../Models/UserModel');
 
-exports.post = (req, res) => {
+exports.post = async (req, res) => {
     try {
-        User.signUp(req.body);
-        res.status(201).send(`Conta de ${req.body.name} criada com sucesso!`);
+        const query = await User.signUp(req.body);
+        res.status(201).send(query);
     } catch (error) {
         res.status(500).send(error);
     }
@@ -11,7 +11,7 @@ exports.post = (req, res) => {
 
 exports.get = async (req, res) => {
     try {
-        let query = await User.login(req.body);
+        const query = await User.login(req.body);
         console.log(query);
         
         if (query) {
