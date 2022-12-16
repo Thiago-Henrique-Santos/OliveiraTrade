@@ -9,9 +9,9 @@ exports.post = (req, res) => {
     }
 }
 
-exports.get = (req, res) => {
+exports.get = async (req, res) => {
     try {
-        let query = User.login(req.body);
+        let query = await User.login(req.body);
         console.log(query);
         
         if (query) {
@@ -19,7 +19,7 @@ exports.get = (req, res) => {
         } else {
             res.status(500).send('Erro desconhecido! ' + query)
         }
-    } catch {
+    } catch (error) {
         res.status(500).send('Ocorreu um erro em UserController.js > método get');
     }
 }

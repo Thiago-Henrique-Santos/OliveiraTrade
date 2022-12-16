@@ -21,14 +21,15 @@ exports.login = (login) => {
     const db = database.open('./DataBase/database.db');
     db.get(sql, [login.email, hash.digest('base64')], (err, row) => {
         if (err) {
-            return `Erro: ${err.message}`;
+            return new promises((resolve, reject) => {
+                let errMessage = `Erro: ${err.message}`;
+                return errMessage;
+            });
         }
 
-        if (row) {
-            return row ? row : 'Email ou senha incorreto!';   
-        } else {
-            return 'O erro está em algo envolvendo a variável row!';
-        }
+        return new Promise((resolve, reject) => {
+            resolve(row && row!=undefined ? row : 'Email ou senha incorreto!');
+        });
     });
     database.close(db);
 }
