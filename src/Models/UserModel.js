@@ -23,7 +23,7 @@ exports.login = (login) => {
         if (err) {
             return new Promise ((resolve, reject) => {
                 let errMessage = `Erro: ${err.message}`;
-                return errMessage;
+                resolve(errMessage);
             });
         }
 
