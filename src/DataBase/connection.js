@@ -5,8 +5,6 @@ exports.open = (database) => {
         if (err) {
             return console.error(err.message);
         }
-    
-        console.log("Connected to OliveiraTrade's database!");
     });
 
     return database;
@@ -17,7 +15,5 @@ exports.close = (database) => {
         if (err) {
             return console.error(err);
         }
-
-        console.log("Closing connection to OliveiraTrade's database!");
     });
 }

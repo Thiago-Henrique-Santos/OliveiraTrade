@@ -12,10 +12,8 @@ exports.post = async (req, res) => {
 exports.get = async (req, res) => {
     try {
         const query = await User.login(req.body);
-        console.log(query);
         
         if (query) {
-            console.log(query);
             if (query.id) {
                 res.status(200).send(query);
             } else {

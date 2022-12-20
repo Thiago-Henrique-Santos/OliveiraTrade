@@ -6,14 +6,14 @@ exports.signUp = (user) => {
     return new Promise((resolve, reject) => {
         let hash = crypto.createHash('sha1');
         hash = hash.update(user.pass);
+        user.pass = hash.digest('base64');
 
         const db = database.open('./DataBase/database.db');
         const query = db.prepare(`INSERT INTO user (name, email, cpf, pass) VALUES (?, ?, ?, ?);`);
-        query.run(user.name, user.email, user.cpf, hash.digest('base64'));
+        query.run(user.name, user.email, user.cpf, user.pass);
         query.finalize();
         database.close(db);
 
-        console.log(user);
         resolve(user);
     })
 }
