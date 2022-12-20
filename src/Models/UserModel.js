@@ -18,7 +18,7 @@ exports.signUp = (user) => {
     })
 }
 
-exports.login = (login) => {
+exports.signIn = (login) => {
     return new Promise ((resolve, reject) => {
         let hash = crypto.createHash('sha1');
         hash = hash.update(login.pass);

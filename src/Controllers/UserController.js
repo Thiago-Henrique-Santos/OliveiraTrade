@@ -11,7 +11,7 @@ exports.post = async (req, res) => {
 
 exports.get = async (req, res) => {
     try {
-        const query = await User.login(req.body);
+        const query = await User.signIn(req.body);
         
         if (query) {
             if (query.id) {
