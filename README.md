@@ -12,7 +12,7 @@ Esta API, desenvolvida para aplicar à vaga de trainee na empresa EveryMind, per
 
 Ambas as rotas, quando concluídas corretamente, retornam os dados do usuário como resposta. Isso permite mostrar uma mensagem de sucesso personalizada, com base nos dados do usuário.
 
-Todas as respostas são retornadas em formato json.
+O corpo das requisições devem ser enviados em formato JSON. E todas respostas, também são retornadas em formato json.
 
 **Modelo de resposta para rota signup:**
 ```json
