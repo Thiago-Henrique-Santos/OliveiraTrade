@@ -49,7 +49,7 @@ const data = {
 	"pass" : "*joseantonio12345"
 }
 
-fetch('http://localhost:3333/signin', {
+fetch('http://localhost:3333/signup', {
 	method: "POST",
 	body: JSON.stringify(data),
 	headers: {"Content-type": "application/json; charset=UTF-8"}
