@@ -5,7 +5,7 @@ exports.signUp = async (req, res) => {
         const query = await User.signUp(req.body);
         res.status(201).send(query);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send(JSON.stringify({message: `Ocorreu o seguinte erro inesperado: ${error}`}));
     }
 }
 
@@ -23,6 +23,6 @@ exports.signIn = async (req, res) => {
             res.status(500).send('Erro desconhecido! ' + query)
         }
     } catch (error) {
-        res.status(500).send('Ocorreu um erro em UserController.js > método get');
+        res.status(500).send(JSON.stringify({message: `Ocorreu o seguinte erro inesperado: ${error}`}));
     }
 }
