@@ -1,6 +1,6 @@
 const User = require('../Models/UserModel');
 
-exports.post = async (req, res) => {
+exports.signUp = async (req, res) => {
     try {
         const query = await User.signUp(req.body);
         res.status(201).send(query);
@@ -9,7 +9,7 @@ exports.post = async (req, res) => {
     }
 }
 
-exports.get = async (req, res) => {
+exports.signIn = async (req, res) => {
     try {
         const query = await User.signIn(req.body);
         
