@@ -7,7 +7,9 @@ Esta API, desenvolvida para aplicar à vaga de trainee na empresa EveryMind, per
 ## Endpoints e responses
 
 > **Endpoints: rotas de acesso às funcionalidades da API**
+>
 > /signup
+>
 >/signin
 
 Ambas as rotas, quando concluídas corretamente, retornam os dados do usuário como resposta. Isso permite mostrar uma mensagem de sucesso personalizada, com base nos dados do usuário.
