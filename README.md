@@ -14,7 +14,17 @@ Ambas as rotas, quando concluídas corretamente, retornam os dados do usuário c
 
 O corpo das requisições devem ser enviados em formato JSON. E todas respostas, também são retornadas em formato json.
 
-**Modelo de resposta para rota signup:**
+**Modelo de *corpo de requisição* para rota signup:**
+```json
+{
+	"name": "Nome do usuário",
+	"email": "enderecodeemail@dominio",
+	"cpf": "000.000.000-00",
+	"pass" : "senhaDoUsuario"
+}
+```
+
+**Modelo de *resposta* para rota signup:**
 ```json
 {
 	"name": "Nome do usuário",
@@ -23,7 +33,15 @@ O corpo das requisições devem ser enviados em formato JSON. E todas respostas,
 }
 ```
 
-**Modelo de resposta para rota signin:**
+**Modelo de *corpo de requisição* para rota signin:**
+```json
+{
+	"name": "Nome do usuário",
+	"pass" : "senhaDoUsuario"
+}
+```
+
+**Modelo de *resposta* para rota signin:**
 ```json
 {
 	"id": 1,
